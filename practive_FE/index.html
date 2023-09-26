@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>practice</title>
+</head>
+<body>
+    <h1 id="message"></h1>
+    <div class="login">
+        <h2 class="title">User Login</h2>
+        <form id="loginUserForm">
+            <label for="username">Username:</label>
+            <input type="text" id="loginUsername" name="loginUsername"><br><br>
+    
+            <label for="password">Password:</label>
+            <input type="password" id="loginPassword" name="loginPassword" autocomplete="current-password"><br><br>
+
+            <div class="btnGroup">
+                <button type="submit">Login</button>
+                <button class="goRegister" onclick="toogleView(true)">Register Account</button>
+            </div>
+        </form>
+    </div>
+    <div class="createUser">
+        <h2 class="title">Register</h2>
+        <form id="createUserForm">
+            <label for="username">Username:</label>
+            <input type="text" id="registerUsername" name="registerUsername"><br><br>
+    
+            <label for="password">Password:</label>
+            <input type="password" id="registerPassword" name="registerPassword" autocomplete="current-password"><br><br>
+    
+            <label for="birthday">Birthday:</label>
+            <input type="date" id="registerBirthday" name="registerBirthday"><br><br>
+            
+            <div class="btnGroup">
+                <button class="backLogin" onclick="toogleView(false)">Back Login</button>
+                <button type="submit">Confirm</button>
+            </div>
+        </form>
+    </div>
+    <div class="crudPart">
+        <div class="logout">
+            <h2 class="title">User Logout</h2>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+        <div class="refresh">
+            <h2 class="title">Refresh Token</h2>
+            <button>Refresh</button>
+        </div>
+
+        <div class="updataUser">
+            <h2 class="title">UPDATE</h2>
+            <form id="updataUserForm">
+                <div class="usernameGroup">
+                    <label for="username">Username:</label>
+                    <div id="userProfileName"></div>
+                </div><br>
+
+                <label for="password">Password:</label>
+                <input type="password" id="userProfilepPssword" name="userProfilePassword" autocomplete="current-password"><br><br>
+        
+                <label for="birthday">Birthday:</label>
+                <input type="date" id="userProfileBirthday" name="userProfileBirthday"><br><br>
+                <button id="updata">Save</button>
+            </form>
+        </div>
+
+        <div class="getAllUser">
+            <h2 class="title">SEARCH ALL</h2>
+            <button id="getUser">All User</button>
+            <table id="userTableAll">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Birthday</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    
+        <div class="getUserByUsername">
+            <h2 class="title">SEARCH USER BY USERNAME</h2>
+            <label for="username">Search Username:</label>
+            <input type="text" id="username" name="username">
+            <button id="getUserByUN">Search User</button><br><br>
+            <table id="userTableByUsername">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Birthday</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  # Laravel 服務
+  laravel_practive_server:
+    container_name: laravel_practive_server
+    image: webdevops/php-nginx-dev:8.2
+    working_dir: /app
+    ports:
+      - ${PORT}:80
+    environment:
+      - WEB_DOCUMENT_ROOT=/app/public
+      - DB_CONNECTION=${DB_CONNECTION}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+    depends_on:
+      - postgres_db
+    volumes:
+      - ./:/app
+    env_file:
+      - .env
+
+  # PostgreSQL 服務
+  postgres_db:
+    container_name: postgres_db
+    image: postgres:15.4
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    environment:
+      - POSTGRES_DB=${DB_DATABASE}
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    env_file:
+      - .env
+
+volumes:
+  data:
+    driver: local

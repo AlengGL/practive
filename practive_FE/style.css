@@ -1,0 +1,71 @@
+
+#userTableAll, #userTableByUsername{
+    width: 500px;
+    text-align: center;
+}
+
+.crudPart {
+    flex-direction: column;
+}
+
+.login {
+    flex-direction: column;
+    width: fit-content;
+    height: 100%;
+    margin: auto auto;
+}
+
+.login .btnGroup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.refresh {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.logout {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.createUser {
+    flex-direction: column;
+    width: fit-content;
+    margin: 60px auto;
+}
+
+.createUser .btnGroup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.getAllUser {
+    width: fit-content;
+    margin: 60px auto;
+}
+
+
+.getUserByUsername {
+    width: fit-content;
+    margin: 60px auto;
+}
+
+.updataUser {
+    width: fit-content;
+    margin: 60px auto;
+}
+
+.updataUser .usernameGroup {
+    display: flex;
+}
