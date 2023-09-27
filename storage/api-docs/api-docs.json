@@ -6,7 +6,7 @@
                 "type": "apiKey",
                 "in": "header",
                 "name": "Authorization",
-                "description": "Bearer token to access these api endpoints",
+                "description": "Bearer token to access these api endpoints  Format : Bearer {your token}",
                 "scheme": "bearer",
                 "bearerFormat": "JWT"
             }
@@ -101,7 +101,7 @@
                 "description": "Endpoint for user logout",
                 "security": [
                     {
-                        "api_key": []
+                        "token": []
                     }
                 ],
                 "responses": {
@@ -145,7 +145,7 @@
                 "description": "Refresh user token",
                 "security": [
                     {
-                        "api_key": []
+                        "token": []
                     }
                 ],
                 "responses": {
@@ -281,7 +281,7 @@
                 "description": "Get user profile",
                 "security": [
                     {
-                        "api_key": []
+                        "token": []
                     }
                 ],
                 "responses": {
