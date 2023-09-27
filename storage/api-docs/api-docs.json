@@ -6,7 +6,7 @@
                 "type": "apiKey",
                 "in": "header",
                 "name": "Authorization",
-                "description": "Bearer token to access these api endpoints  Format : Bearer {your token}",
+                "description": "Bearer token to access these api endpoints （Format : Bearer {your token}）",
                 "scheme": "bearer",
                 "bearerFormat": "JWT"
             }
