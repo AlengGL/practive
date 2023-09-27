@@ -18,8 +18,8 @@
             <input type="password" id="loginPassword" name="loginPassword" autocomplete="current-password"><br><br>
 
             <div class="btnGroup">
-                <button type="submit">Login</button>
-                <button class="goRegister" onclick="toogleView(true)">Register Account</button>
+                <button id="loginButton" type="submit">Login</button>
+                <button type="button" class="goRegister" onclick="toogleView(true)">Register Account</button>
             </div>
         </form>
     </div>
@@ -36,8 +36,8 @@
             <input type="date" id="registerBirthday" name="registerBirthday"><br><br>
             
             <div class="btnGroup">
-                <button class="backLogin" onclick="toogleView(false)">Back Login</button>
-                <button type="submit">Confirm</button>
+                <button type="button" class="backLogin" onclick="toogleView(false)">Back Login</button>
+                <button id="registerButton" type="submit">Confirm</button>
             </div>
         </form>
     </div>

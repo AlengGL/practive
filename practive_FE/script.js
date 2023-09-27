@@ -1,8 +1,6 @@
 // laravel port 8000
 const apiUrl = 'http://localhost:8000';
 
-const globalUserName = '';
-
 function parseToken(token) {
     try {
         const tokenData = JSON.parse(atob(token.split('.')[1]));
@@ -37,14 +35,12 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //login
-document.getElementById('loginUserForm').addEventListener('submit', function (e) {
+document.getElementById('loginButton').addEventListener('click', function (e) {
     e.preventDefault();
     document.getElementById('message').textContent = '';
 
     const username = document.getElementById('loginUsername').value;
     const password = document.getElementById('loginPassword').value;
-
-    this.globalUserName = username;
 
     const userData = {
         username: username,
@@ -96,6 +92,10 @@ document.querySelector('.refresh').addEventListener('click', () => {
         console.log(data);
         localStorage.setItem('memory', data.access_token);
         document.getElementById('message').textContent = 'Refresh Successful';
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 2000);
     })
     .catch(error => {
         console.error('Error:', error);
@@ -103,7 +103,7 @@ document.querySelector('.refresh').addEventListener('click', () => {
 })
 
 // create
-document.getElementById('createUserForm').addEventListener('submit', function (e) {
+document.getElementById('registerButton').addEventListener('click', function (e) {
     e.preventDefault();
     document.getElementById('message').textContent = '';
 
@@ -134,8 +134,8 @@ document.getElementById('createUserForm').addEventListener('submit', function (e
         }
     })
     .then(data => {
-        loginUser(username, password);
         if (data.message) {
+            loginUser(username, password);
             document.getElementById('message').textContent = data.message;
             
             document.querySelector('.createUser').style.display = 'none';
@@ -176,7 +176,8 @@ document.getElementById('getUser').addEventListener('click', () => {
         userData.forEach(user => {
             const row = document.createElement('tr');
 
-            const deleteButtonHtml = this.globalUserName == user.username
+            console.log(localStorage.getItem('username')  == user.username,localStorage.getItem('username') , user.username)
+            const deleteButtonHtml = localStorage.getItem('username') == user.username
                 ? ''
                 : '<td><button class="deleteUser">delete</button></dt>';
         
@@ -256,6 +257,7 @@ document.getElementById('getUserByUN').addEventListener('click', () => {
 
 // updata
 document.getElementById('updataUserForm').addEventListener('submit', function (e) {
+    e.preventDefault();
     document.getElementById('message').textContent = '';
 
     const username = document.getElementById('userProfileName').textContent;
@@ -343,6 +345,7 @@ function loadUserProfile() {
             return;
         }
         console.log(data, userProfileName, passwordInput, birthdayInput)
+        localStorage.setItem('username', data.username);
         userProfileName.textContent = data.username;
         passwordInput.value = data.password;
         birthdayInput.value = data.birthday;
@@ -390,6 +393,7 @@ function loginUser(username, password) {
 }
 
 function toogleView(className) {
+    document.getElementById('message').textContent = '';
     if(!!className) {
         document.querySelector('.login').style.display = 'none';
         document.querySelector('.createUser').style.display = 'flex';

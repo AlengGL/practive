@@ -12,7 +12,7 @@
     flex-direction: column;
     width: fit-content;
     height: 100%;
-    margin: auto auto;
+    margin: auto;
 }
 
 .login .btnGroup {
@@ -37,7 +37,7 @@
 .createUser {
     flex-direction: column;
     width: fit-content;
-    margin: 60px auto;
+    margin: auto;
 }
 
 .createUser .btnGroup {
