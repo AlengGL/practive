@@ -275,7 +275,7 @@
             }
         },
         "/api/auth/userProfile": {
-            "post": {
+            "get": {
                 "tags": ["User"],
                 "summary": "User profile",
                 "description": "Get user profile",
