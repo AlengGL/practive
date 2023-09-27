@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Controllers\QueryException;
 
 class UserController extends Controller
 {
@@ -12,8 +13,6 @@ class UserController extends Controller
     public function getAll() {
         try {
             return response()->json(["data" => User::all()], 200);
-        } catch (QueryException $e) {
-            return response()->json(["error" => "Database error: " . $e->getMessage()], 500);
         } catch (\Exception $e) {
             return response()->json(["error" => "Server error: " . $e->getMessage()], 500);
         }
@@ -29,8 +28,6 @@ class UserController extends Controller
             }
 
             return response()->json(['message' => 'not found user'], 401);
-        } catch (QueryException $e) {
-            return response()->json(["error" => "Database error: " . $e->getMessage()], 500);
         } catch (\Exception $e) {
             return response()->json(["error" => "Server error: " . $e->getMessage()], 500);
         }
@@ -49,8 +46,6 @@ class UserController extends Controller
             }
 
             return response()->json(["error" => "User not found"], 404);
-        } catch (QueryException $e) {
-            return response()->json(["error" => "Database error: " . $e->getMessage()], 500);
         } catch (\Exception $e) {
             return response()->json(["error" => "Server error: " . $e->getMessage()], 500);
         }
@@ -68,8 +63,6 @@ class UserController extends Controller
             }
 
             return response()->json(["error" => "User not found"], 404);
-        } catch (QueryException $e) {
-            return response()->json(["error" => "Database error: " . $e->getMessage()], 500);
         } catch (\Exception $e) {
             return response()->json(["error" => "Server error: " . $e->getMessage()], 500);
         }

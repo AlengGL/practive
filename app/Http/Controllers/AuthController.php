@@ -53,8 +53,6 @@ class AuthController extends Controller
 
                 return response()->json(["message" => "User Register successfully"], 200);
             }
-        } catch (QueryException $e) {
-            return response()->json(["error" => "Database error: " . $e->getMessage()], 500);
         } catch (\Exception $e) {
             return response()->json(["error" => "Server error: " . $e->getMessage()], 500);
         }
